@@ -12,7 +12,7 @@ WORKDIR /public
 
 RUN apk add nodejs && \
     apk add npm && \
-    rm -rf node_modules && \
+    # rm -rf node_modules && \
     npm install && \
     npm run build
     
