@@ -10,48 +10,60 @@ import {
   NavLink
 } from "react-router-dom";
 
-import {AppBar, Box, Toolbar, Button, Typography, ButtonGroup} from '@mui/material'
+import {AppBar, Container, Box, Toolbar, Button, Typography, ButtonGroup} from '@mui/material'
+
+import HomeIcon from '@mui/icons-material/Home';
+import BookIcon from '@mui/icons-material/Book';
+import InfoIcon from '@mui/icons-material/Info';
+import LoginIcon from '@mui/icons-material/Login';
 
 ReactDOM.render(
   <Router>
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar >
-          <Typography variant="h4" style={{ border:"200px"}}>
-            Folktale
-          </Typography>
+        {/* <Container maxWidth='lg'> */}
+          <Toolbar >
+            <Button variant="h4" style={{ fontSize:"1.5rem"}}>
+              Folktale
+            </Button>
 
-          <ButtonGroup variant="text" aria-label="large secondary button group" sx={{ flexGrow: 1 }}>
-            <Button color="inherit">
+            <ButtonGroup variant="text" aria-label="large secondary button group" sx={{ flexGrow: 1 }}>
+              
               <NavLink to="/home" activeClassName="selected" style={{ textDecoration: 'none' }}>
-                Home
+                <Button style={{ color:"white" }}>
+                  <HomeIcon/>
+                  Home
+                </Button>
               </NavLink>
-            </Button>
-            
-            <Button color="inherit">
+              
               <NavLink to="/blogs" activeClassName="selected" style={{ textDecoration: 'none' }}>
-                Blogs
+                <Button style={{ color:"white" }}>
+                  <BookIcon/>
+                  Blogs
+                </Button>
               </NavLink>
-            </Button>
 
-            <Button color="inherit">
               <NavLink to="/about" activeClassName="selected" style={{ textDecoration: 'none' }}>
-                About Us
+                <Button style={{ color:"white" }}>
+                  <InfoIcon/> 
+                  About Us
+                </Button>
               </NavLink>
-            </Button>
-          </ButtonGroup>
-          
-          <Button color="inherit">Login</Button>
-        </Toolbar>
+            </ButtonGroup>
+            
+            <Button style={{ color:"white" }}><LoginIcon/> Login</Button>
+          </Toolbar>
+        {/* </Container> */}
       </AppBar>
     </Box>
 
-
-    <Switch>
-      <Route path="/">
-        <App />
-      </Route>
-    </Switch>
+    <Container>
+      <Switch>
+        <Route path="/">
+          <App />
+        </Route>
+      </Switch>
+    </Container>
   </Router>,
   document.getElementById('root')
 );
