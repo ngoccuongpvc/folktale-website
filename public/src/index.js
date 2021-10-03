@@ -18,13 +18,8 @@ ReactDOM.render(
   <Router>
     <Navbar variant="light" fixed="top">
     <Container>
-      <Navbar.Brand href="/home">Folktale</Navbar.Brand>
+      <Navbar.Brand href="/">Folktale</Navbar.Brand>
       <Nav className="me-auto">
-        <Nav.Link>
-          <Link to="/home" style={{ textDecoration: 'none' }}>
-              <HomeIcon/> Home
-          </Link>
-        </Nav.Link>
         <Nav.Link>
           <Link to="/blogs" style={{ textDecoration: 'none' }}>
             <BookIcon/> Blogs
