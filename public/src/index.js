@@ -16,11 +16,11 @@ import { Home as HomeIcon, Book as BookIcon, Info as InfoIcon, Login as LoginIco
 
 ReactDOM.render(
   <Router>
-    <Navbar variant="light" fixed="top">
+    <Navbar bg='white' variant="light" fixed="top">
     <Container>
       
       <Link to="/" style={{ textDecoration: 'none' }}>
-        <Navbar.Brand style={{ fontSize:'3rem', fontFamily:'Ephesis'}}>
+        <Navbar.Brand>
           Folktale
         </Navbar.Brand>
       </Link>
