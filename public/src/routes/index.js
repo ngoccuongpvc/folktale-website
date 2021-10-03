@@ -5,7 +5,7 @@ import { VerticalAlignCenter } from '@mui/icons-material';
 function App() {
     return (
       <div className="App">
-        <p style = {{ textAlign:'center', verticalAlign:'middle', paddingTop:'30%', fontSize:'10vh'}}> 
+        <p style = {{ textAlign:'center', verticalAlign:'middle', paddingTop:'30%', fontSize:'10vh', color:'white'}}> 
             Coming Soon! 
         </p>
       </div>
