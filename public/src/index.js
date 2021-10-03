@@ -26,20 +26,20 @@ ReactDOM.render(
           </Link>
         </Nav.Link>
         <Nav.Link>
-          <NavLink to="/blogs" activeClassName="selected" style={{ textDecoration: 'none' }}>
+          <Link to="/blogs" style={{ textDecoration: 'none' }}>
             <BookIcon/> Blogs
-          </NavLink>
+          </Link>
         </Nav.Link>
         <Nav.Link>
-          <NavLink to="/about" activeClassName="selected" style={{ textDecoration: 'none' }}>
+          <Link to="/about" style={{ textDecoration: 'none' }}>
             <InfoIcon/> About Us
-          </NavLink>
+          </Link>
         </Nav.Link> 
       </Nav>
       <Nav>
-        <NavLink to="/login" activeClassName="selected" style={{ textDecoration: 'none' }}>
+        <Link to="/login"  style={{ textDecoration: 'none' }}>
           <LoginIcon/> Login
-        </NavLink>
+        </Link>
       </Nav>
     </Container>
   </Navbar>
