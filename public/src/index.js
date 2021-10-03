@@ -12,7 +12,7 @@ import {
 
 import { Button, Container, Navbar, Nav } from 'react-bootstrap'
 
-import { Home as HomeIcon, Book as BookIcon, Info as InfoIcon, Login as LoginIcon } from '@mui/icons-material';
+import { Home as HomeIcon, Book as BookIcon, Info as InfoIcon, Login as LoginIcon, Facebook as FacebookIcon, Mail as MailIcon } from '@mui/icons-material';
 
 ReactDOM.render(
   <Router>
@@ -37,9 +37,12 @@ ReactDOM.render(
         </Nav.Link> 
       </Nav>
       <Nav>
-        <Link to="/login"  style={{ textDecoration: 'none' }}>
-          <LoginIcon/> Login
-        </Link>
+        <Nav.Link href="https://www.facebook.com/folktalemiccn"  style={{ textDecoration: 'none' }}>
+          <FacebookIcon/>
+        </Nav.Link>
+        <Nav.Link href="mailto:teamfolktale@gmail.com"  style={{ textDecoration: 'none' }}>
+          <MailIcon/>
+        </Nav.Link>
       </Nav>
     </Container>
   </Navbar>
