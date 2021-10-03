@@ -19,8 +19,8 @@ ReactDOM.render(
     <Navbar variant="light" fixed="top">
     <Container>
       
-      <Link to="/about" style={{ textDecoration: 'none' }}>
-        <Navbar.Brand>
+      <Link to="/" style={{ textDecoration: 'none' }}>
+        <Navbar.Brand style={{ fontSize:'3rem', fontFamily:'Ephesis'}}>
           Folktale
         </Navbar.Brand>
       </Link>
