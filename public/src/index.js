@@ -10,52 +10,39 @@ import {
   NavLink
 } from "react-router-dom";
 
-import {AppBar, Container, Box, Toolbar, Button, Typography, ButtonGroup} from '@mui/material'
+import { Button, Container, Navbar, Nav } from 'react-bootstrap'
 
-import HomeIcon from '@mui/icons-material/Home';
-import BookIcon from '@mui/icons-material/Book';
-import InfoIcon from '@mui/icons-material/Info';
-import LoginIcon from '@mui/icons-material/Login';
+import { Home as HomeIcon, Book as BookIcon, Info as InfoIcon, Login as LoginIcon } from '@mui/icons-material';
 
 ReactDOM.render(
   <Router>
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        {/* <Container maxWidth='lg'> */}
-          <Toolbar >
-            <Button variant="h4" style={{ fontSize:"1.5rem"}}>
-              Folktale
-            </Button>
-
-            <ButtonGroup variant="text" aria-label="large secondary button group" sx={{ flexGrow: 1 }}>
-              
-              <NavLink to="/home" activeClassName="selected" style={{ textDecoration: 'none' }}>
-                <Button style={{ color:"white" }}>
-                  <HomeIcon/>
-                  Home
-                </Button>
-              </NavLink>
-              
-              <NavLink to="/blogs" activeClassName="selected" style={{ textDecoration: 'none' }}>
-                <Button style={{ color:"white" }}>
-                  <BookIcon/>
-                  Blogs
-                </Button>
-              </NavLink>
-
-              <NavLink to="/about" activeClassName="selected" style={{ textDecoration: 'none' }}>
-                <Button style={{ color:"white" }}>
-                  <InfoIcon/> 
-                  About Us
-                </Button>
-              </NavLink>
-            </ButtonGroup>
-            
-            <Button style={{ color:"white" }}><LoginIcon/> Login</Button>
-          </Toolbar>
-        {/* </Container> */}
-      </AppBar>
-    </Box>
+    <Navbar variant="light" fixed="top">
+    <Container>
+      <Navbar.Brand href="/home">Folktale</Navbar.Brand>
+      <Nav className="me-auto">
+        <Nav.Link>
+          <Link to="/home" style={{ textDecoration: 'none' }}>
+              <HomeIcon/> Home
+          </Link>
+        </Nav.Link>
+        <Nav.Link>
+          <NavLink to="/blogs" activeClassName="selected" style={{ textDecoration: 'none' }}>
+            <BookIcon/> Blogs
+          </NavLink>
+        </Nav.Link>
+        <Nav.Link>
+          <NavLink to="/about" activeClassName="selected" style={{ textDecoration: 'none' }}>
+            <InfoIcon/> About Us
+          </NavLink>
+        </Nav.Link> 
+      </Nav>
+      <Nav>
+        <NavLink to="/login" activeClassName="selected" style={{ textDecoration: 'none' }}>
+          <LoginIcon/> Login
+        </NavLink>
+      </Nav>
+    </Container>
+  </Navbar>
 
     <Container>
       <Switch>
