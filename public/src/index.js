@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import  App  from './routes/index';
 import {
   BrowserRouter as Router,
   Switch,
@@ -42,13 +42,15 @@ ReactDOM.render(
     </Container>
   </Navbar>
 
-    <Container>
-      <Switch>
-        <Route path="/">
-          <App />
-        </Route>
-      </Switch>
-    </Container>
+  <div id='content'>
+  <Container>
+    <Switch>
+      <Route path="/">
+        <App />
+      </Route>
+    </Switch>
+  </Container>
+  </div>
   </Router>,
   document.getElementById('root')
 );
