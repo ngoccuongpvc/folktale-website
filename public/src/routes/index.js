@@ -1,15 +1,26 @@
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 import React from 'react'
 import { VerticalAlignCenter } from '@mui/icons-material';
-
-function App() {
-    return (
-      <div className="App">
-        <p style = {{ textAlign:'center', verticalAlign:'middle', paddingTop:'30%', fontSize:'10vh', color:'white'}}> 
-            Coming Soon! 
-        </p>
-      </div>
-    );
+import Home from './Home/Home'
+import Blogs from './Blogs/Blogs';
+import { render } from 'react-dom';
+class App extends React.Component {
+    
+    render() {
+      const { match, location, history } = this.props;
+      return (
+        <div className="App">
+          <Switch>
+              <Route path='/blogs'>
+                  <Blogs />
+              </Route>
+              <Route exact path="/">
+                  <Home />
+              </Route>
+          </Switch>
+        </div>
+      )
+    }
   }
   
-  export default App;
+  export default withRouter(App);

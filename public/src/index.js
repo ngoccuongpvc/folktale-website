@@ -18,7 +18,13 @@ ReactDOM.render(
   <Router>
     <Navbar variant="light" fixed="top">
     <Container>
-      <Navbar.Brand href="/">Folktale</Navbar.Brand>
+      
+      <Link to="/about" style={{ textDecoration: 'none' }}>
+        <Navbar.Brand>
+          Folktale
+        </Navbar.Brand>
+      </Link>
+      
       <Nav className="me-auto">
         <Nav.Link>
           <Link to="/blogs" style={{ textDecoration: 'none' }}>
@@ -44,11 +50,7 @@ ReactDOM.render(
 
   <div id='content'>
   <Container>
-    <Switch>
-      <Route path="/">
-        <App />
-      </Route>
-    </Switch>
+      <App />
   </Container>
   </div>
   </Router>,
