@@ -6,14 +6,14 @@ WORKDIR /app
 
 RUN go build main.go
 
-FROM alpine:latest as frontendBuilder
+FROM node:14.18-alpine as frontendBuilder
 COPY public /public
 WORKDIR /public
 
-RUN apk add nodejs && \
-    apk add npm && \
+# RUN apk add nodejs && \
+    # apk add npm && \
     # rm -rf node_modules && \
-    npm install && \
+RUN npm install && \
     npm run build
     
 FROM nginx:alpine
