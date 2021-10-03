@@ -3,6 +3,7 @@ import React from 'react'
 import { VerticalAlignCenter } from '@mui/icons-material';
 import Home from './Home/Home'
 import Blogs from './Blogs/Blogs';
+import About from './About/About';
 import { render } from 'react-dom';
 class App extends React.Component {
     
@@ -13,6 +14,9 @@ class App extends React.Component {
           <Switch>
               <Route path='/blogs'>
                   <Blogs />
+              </Route>
+              <Route exact path="/about">
+                  <About />
               </Route>
               <Route exact path="/">
                   <Home />
