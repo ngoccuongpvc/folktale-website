@@ -3,6 +3,8 @@ package main
 import (
 	"net/http"
 
+	_ "folktale/firebase_storage"
+
 	"github.com/gin-gonic/gin"
 )
 

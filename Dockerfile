@@ -19,6 +19,8 @@ RUN apk add nodejs && \
 FROM nginx:alpine
 EXPOSE 80
 COPY nginx.conf /etc/nginx/nginx.conf
+COPY secrets /secrets
+RUN apk add openssl
 
 COPY --from=backendBuilder /app/main /app/main
 COPY --from=frontendBuilder /public/build /var/www
