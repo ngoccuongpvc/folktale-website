@@ -12,7 +12,7 @@ WORKDIR /public
 
 RUN apk add nodejs && \
     apk add npm && \
-    # rm -rf node_modules && \
+    npm install --global yarn && \
     yarn install && \
     yarn run build
     
