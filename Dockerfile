@@ -13,8 +13,8 @@ WORKDIR /public
 RUN apk add nodejs && \
     apk add npm && \
     # rm -rf node_modules && \
-    npm install && \
-    npm run build
+    yarn install && \
+    yarn run build
     
 FROM nginx:alpine
 EXPOSE 80
