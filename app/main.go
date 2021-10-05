@@ -37,7 +37,7 @@ func main() {
 	println("Hello World!")
 	router := gin.Default()
 
-	router.GET("ping", handlePing)
-	router.POST("upload-image", handleUploadImage)
+	router.GET("api/ping", handlePing)
+	router.POST("api/upload-image", handleUploadImage)
 	router.Run()
 }
