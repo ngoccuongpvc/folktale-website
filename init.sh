@@ -7,5 +7,5 @@ fi
 
 sed -i -e 's/$PORT/'"$LISTENING_PORT"'/g' /etc/nginx/nginx.conf
 
-( cd /app && .main & )
+( cd /app && ./main & )
 nginx -g 'daemon off;'
