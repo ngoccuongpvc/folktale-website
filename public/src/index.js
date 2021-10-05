@@ -4,10 +4,7 @@ import './index.css';
 import  App  from './routes/index';
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  NavLink
+  Link
 } from "react-router-dom";
 
 import { Button, Container, Navbar, Nav } from 'react-bootstrap'

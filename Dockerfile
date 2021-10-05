@@ -24,7 +24,8 @@ RUN apk add openssl && \
 
 COPY --from=backendBuilder /app/main /app/main
 COPY --from=frontendBuilder /public/build /var/www
-COPY --from=frontendBuilder /secrets/serviceAccount.json /app
+
+RUN cp /secrets/serviceAccount.json /app
 COPY init.sh init.sh
 RUN chmod 777 init.sh
 CMD ["/bin/sh","init.sh"]
