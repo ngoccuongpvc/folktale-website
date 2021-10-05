@@ -32,15 +32,15 @@ func init() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	UploadImage("image.png")
+	// UploadImage("image.png")
 }
 
 func UploadImage(url string) {
-	imageFile, err := os.Open("firebase_storage/image.png")
+	imageFile, err := os.Open(url)
 	if err != nil {
 		log.Fatal(err.Error())
 	}
-	wc := bucket.Object("image1.png").NewWriter(context.Background())
+	wc := bucket.Object("test.png").NewWriter(context.Background())
 	_, err = io.Copy(wc, imageFile)
 	if err != nil {
 		log.Fatal(err.Error())
