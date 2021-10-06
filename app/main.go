@@ -39,5 +39,5 @@ func main() {
 
 	router.GET("api/ping", handlePing)
 	router.POST("api/upload-image", handleUploadImage)
-	router.Run()
+	router.Run(":8080")
 }
