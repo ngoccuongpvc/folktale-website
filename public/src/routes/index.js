@@ -3,6 +3,7 @@ import React from 'react'
 import Home from './Home/Home'
 import Blogs from './Blogs/Blogs';
 import About from './About/About';
+import CreateBlog from './Blogs/CreateBlog';
 class App extends React.Component {
     
     render() {
@@ -18,6 +19,9 @@ class App extends React.Component {
               </Route>
               <Route exact path="/">
                   <Home />
+              </Route>
+              <Route path='/create-blog'>
+                <CreateBlog />
               </Route>
           </Switch>
         </div>

@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"fmt"
-	"folktale/firebase_storage"
+	"folktale/firebase"
 	"io"
 	"strings"
 	"time"
@@ -59,7 +59,7 @@ func HandleUploadImage(c *gin.Context) {
 		return
 	}
 
-	wc := firebase_storage.Bucket.Object(filename).NewWriter(&gin.Context{})
+	wc := firebase.Bucket.Object(filename).NewWriter(&gin.Context{})
 	_, err = io.Copy(wc, file)
 	if err != nil {
 		c.JSON(404, gin.H{
