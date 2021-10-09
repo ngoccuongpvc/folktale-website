@@ -7,6 +7,8 @@ import {
 import AddIcon from '@mui/icons-material/Add';
 import Button from 'react-bootstrap/Button'
 
+import axios from 'axios';
+
 class Blogs extends React.Component {
     constructor(props) {
         super(props)
@@ -15,6 +17,17 @@ class Blogs extends React.Component {
             totalPage : 1,
             currentPage : 1,
         }
+    }
+
+    componentDidMount() {
+        axios({
+            method : 'get',
+            url : '/api/get-posts',
+        }).then(res => {
+            console.log(res)
+        }).catch(res => {
+            console.log(res)
+        })
     }
 
     render() {
