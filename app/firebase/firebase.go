@@ -34,13 +34,13 @@ func init() {
 		log.Fatalln(err)
 	}
 
-	_, _, err = Firestore.Collection("users").Add(context.Background(), map[string]interface{}{
-		"first":  "Alan",
-		"middle": "Mathison",
-		"last":   "Turing",
-		"born":   1912,
-	})
-	if err != nil {
-		log.Fatalf("Failed adding aturing: %v", err)
-	}
+	// _, _, err = Firestore.Collection("users").Add(context.Background(), map[string]interface{}{
+	// 	"first":  "Alan",
+	// 	"middle": "Mathison",
+	// 	"last":   "Turing",
+	// 	"born":   1912,
+	// })
+	// if err != nil {
+	// 	log.Fatalf("Failed adding aturing: %v", err)
+	// }
 }
