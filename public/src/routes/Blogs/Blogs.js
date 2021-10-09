@@ -66,7 +66,7 @@ const cellPlugins = [
 class Blogs extends React.Component {
     constructor() {
         this.state = {
-            showAlert = false
+            showAlert : false
         }
     }
 
