@@ -18,6 +18,6 @@ func main() {
 	router.GET("api/ping", handlePing)
 	router.POST("api/upload-image", controllers.HandleUploadImage)
 	router.GET("api/get-posts", controllers.HandleGetPost)
-	router.POST("api/create-posts", controllers.HandleCreatePost)
+	router.POST("api/create-post", controllers.HandleCreatePost)
 	router.Run(":8080")
 }

@@ -67,7 +67,10 @@ class CreateBlog extends React.Component {
             showAlert : false,
             data : null,
             isShowContentEditor : true,
-            isShowPreviewEditor : false
+            isShowPreviewEditor : false,
+            thumbnail : null,
+            description : null,
+            title : null,
         }
     }
 
@@ -75,7 +78,40 @@ class CreateBlog extends React.Component {
         this.setState({...this.state, data : data})
     }
     handleSubmit() {
+        console.log(this.state)
 
+        var formData = new FormData()
+        formData.append('title', this.state.title)
+        formData.append('thumbnail', this.state.thumbnail)
+        formData.append('description', this.state.description)
+        formData.append('data', JSON.stringify(this.state.data))
+
+        axios({
+            method : 'post',
+            url : '/api/create-post',
+            data: formData,
+            headers : { "Content-Type": "multipart/form-data" }
+        }).then(res => {
+            console.log(res)
+        }).catch(res => {
+            console.log(res)
+        })
+    }
+    uploadImage(file) {
+        var formData = new FormData()
+        formData.append('upload', file)
+
+        axios({
+            method : 'post',
+            url : '/api/upload-image',
+            data: formData,
+            headers : { "Content-Type": "multipart/form-data" }
+        }).then(res => {
+            console.log(res)
+            this.setState({...this.state, thumbnail : res.data.url})
+        }).catch(res => {
+            console.log(res)
+        })
     }
     showContentEditor() {
         return(
@@ -99,16 +135,20 @@ class CreateBlog extends React.Component {
                 <Form>
                     <Form.Group className="mb-3">
                         <Form.Label>Title</Form.Label>
-                        <Form.Control type="text" placeholder="Title of the post" />
+                        <Form.Control type="text" placeholder="Title of the post" 
+                            onChange={(e)=>{this.setState({...this.state, title : e.target.value })}}
+                        />
                     </Form.Group>
 
                     <Form.Group className="mb-3">
                         <Form.Label>Sort Content</Form.Label>
-                        <Form.Control type="text" placeholder="Sort Description" />
+                        <Form.Control type="text" placeholder="Sort Description" 
+                            onChange={(e)=>{this.setState({...this.state, description : e.target.value })}}
+                        />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formFile">
                         <Form.Label>Thumbnail</Form.Label>
-                        <Form.Control type="file"/>
+                        <Form.Control type="file"  onChange={(e) => {this.uploadImage(e.target.files[0])}}/>
                     </Form.Group>
                 </Form>
                 <div style={{display: 'flex', justifyContent: 'center'}}>
@@ -121,6 +161,7 @@ class CreateBlog extends React.Component {
                     {" "}
                     <Button variant="warning" 
                         onClick={() => {
+                                this.handleSubmit()
                             }}>
                         Submit
                     </Button>
