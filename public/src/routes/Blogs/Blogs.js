@@ -21,6 +21,8 @@ import '@react-page/plugins-video/lib/index.css';
 import html5videoPlugin from '@react-page/plugins-html5-video';
 import '@react-page/plugins-html5-video/lib/index.css';
 
+import axios from 'axios';
+
 const uploadHandler = (file, progress) => {
     console.log(file)
     return new Promise(resolve => {
@@ -28,6 +30,20 @@ const uploadHandler = (file, progress) => {
             console.log(resolve)
           resolve({ url: 'https://firebasestorage.googleapis.com/v0/b/folktale-8a942.appspot.com/o/image1.png?alt=media&token=3b78aab8-ab1f-4972-8118-3d160311b506' });
         }, 2000);
+
+        var formData = new FormData()
+        formData.append('upload', file)
+
+        axios({
+            method : 'post',
+            url : '/api/upload-image',
+            data: formData,
+            headers : { "Content-Type": "multipart/form-data" }
+        }).then(res => {
+            console.log(res)
+        }).catch(res => {
+            console.log(res)
+        })
       });
 }
 
@@ -48,6 +64,12 @@ const cellPlugins = [
 ];
 
 class Blogs extends React.Component {
+    constructor() {
+        this.state = {
+            showAlert = false
+        }
+    }
+
     render() {
         return (
             <div>
