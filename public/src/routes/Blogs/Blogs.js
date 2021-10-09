@@ -5,14 +5,14 @@
 //         super(props)
 //         this.state = {
 //             showAlert : false,
-//             totalPage : 5,
+//             totalPage : 1,
 //             currentPage : 1,
 //         }
 //     }
 
 //     render() {
 //         return (
-//             <Pagination>
+//             <Pagination style={{display: 'flex', justifyContent: 'center'}}>
 //                 <Pagination.First />
 //                 <Pagination.Prev />
 //                 {(() => {
@@ -68,11 +68,6 @@ import axios from 'axios';
 const uploadHandler = (file, progress) => {
     console.log(file)
     return new Promise(resolve => {
-        setTimeout(() => {
-            console.log(resolve)
-          resolve({ url: 'https://firebasestorage.googleapis.com/v0/b/folktale-8a942.appspot.com/o/image1.png?alt=media&token=3b78aab8-ab1f-4972-8118-3d160311b506' });
-        }, 2000);
-
         var formData = new FormData()
         formData.append('upload', file)
 
@@ -82,7 +77,7 @@ const uploadHandler = (file, progress) => {
             data: formData,
             headers : { "Content-Type": "multipart/form-data" }
         }).then(res => {
-            console.log(res)
+            resolve({url : res.data.url })
         }).catch(res => {
             console.log(res)
         })
