@@ -20,12 +20,10 @@ EXPOSE 80
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY secrets /secrets
 RUN apk add openssl 
-    # openssl enc -pbkdf2 -d -aes-256-cbc -in /secrets/serviceAccount.json.enc -out /secrets/serviceAccount.json -pass pass:O0rq434DupSBGtphc1SRHlP8vCOvs07o
 
 COPY --from=backendBuilder /app /app
 COPY --from=frontendBuilder /public/build /var/www
 
-# RUN cp /secrets/serviceAccount.json /app
 COPY init.sh init.sh
 RUN chmod 777 init.sh
 CMD ["/bin/sh","init.sh"]
